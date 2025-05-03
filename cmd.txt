@@ -1,0 +1,21 @@
+apt update && apt upgrade -y
+
+ 
+sudo sh -c "$(curl -fsSL https://software.virtualmin.com/gpl/scripts/virtualmin-install.sh)" -- --bundle LAMP
+
+
+sudo apt-get install -y php-imap
+sudo apt-get install -y php-sqlite3
+sudo apt-get install -y php-curl
+sudo apt install php-gmp
+
+sudo apt install -y php8.1-zip
+
+sudo nano /etc/apache2/ports.conf
+
+ls /etc/apache2/sites-enabled/
+sudo nano /etc/apache2/sites-enabled/unlockur.me.conf
+
+sudo systemctl restart apache2
+
+curl -I http://localhost:8888
